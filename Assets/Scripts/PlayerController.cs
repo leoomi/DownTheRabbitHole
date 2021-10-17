@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
     private float slowSpeedPercent = 0.5f;
     // rigid-body stuff
     [SerializeField]
-    private float[] linearDrag = new float[3] { 16f, 4f, 1f };
+    private float[] linearDrag = new float[3] { 16f, 4f, 0.05f };
     [SerializeField]
-    private float[] angularDrag = new float[3] { 0.05f, 0.15f, 0.02f };
+    private float[] angularDrag = new float[3] { 0.05f, 0.15f, 0.01f };
     #endregion
 
     #region Publics
