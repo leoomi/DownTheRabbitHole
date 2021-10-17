@@ -21,8 +21,18 @@ public class Stairs : MonoBehaviour
         isActive = true;
     }
 
+    // might want to check for projectile/box collision triggering this (could also make for some fun levels if left in?) - Red
+    // when falling from a level-up onto the hole/stairs, the behaviour is NOT triggered. This should be fixed.. eventually.. - Red
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
+        // workaround for ice/(hole/stairs) down behaviour - Red
+        // ensure the gameobject is in fact the player
+        GameObject gameObj = other.gameObject;
+        var component = gameObj.GetComponent<PlayerController>();
+        // not player
+        if (component) component.impedeMovement = false;
+
         // Workaround to avoid player to change the scene when falling/going up to a stairs object
         if (!isActive)
         {
@@ -32,6 +42,9 @@ public class Stairs : MonoBehaviour
         var currentIndex = SceneManager.GetActiveScene().buildIndex;
         var destinationIndex = currentIndex + (goesUp ? 1 : - 1);
         Debug.Log(currentIndex);
+
+        
+
 
         SceneManager.LoadScene(destinationIndex);
     }

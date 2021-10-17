@@ -166,3 +166,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 20
+  linearDrag:
+  - 4
+  - 0
+  angularDrag:
+  - 0.05
+  - 0
+  impedeMovement: 0
