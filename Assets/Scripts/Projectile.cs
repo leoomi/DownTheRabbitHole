@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    private float timeToLive = 8f;
+    private float timeToLive = 3f;
     private Rigidbody2D myRigibody;
 
     void Awake()

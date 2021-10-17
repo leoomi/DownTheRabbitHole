@@ -18,10 +18,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveVelocity;
     #endregion
 
+    public static bool isSpawned = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        isSpawned = true;
         myRigidbody = GetComponent<Rigidbody2D>();
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
