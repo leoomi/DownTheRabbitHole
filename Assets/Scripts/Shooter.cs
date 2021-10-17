@@ -11,7 +11,9 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private float shotVelocity = 10f;
     [SerializeField]
-    private float shotDelay;
+    private float delayBetweenShots = 1f;
+    [SerializeField]
+    private float initialDelay = 0f;
     [SerializeField]
     private float projectileTimeToLive = 3f;
     [SerializeField]
@@ -24,9 +26,11 @@ public class Shooter : MonoBehaviour
 
     private IEnumerator ShootCoroutine()
     {
+        yield return new WaitForSeconds(initialDelay);
+
         while (true)
         {
-            yield return new WaitForSeconds(shotDelay);
+            yield return new WaitForSeconds(delayBetweenShots);
             var projectileInstance = Instantiate(projectilePrefab.gameObject, shotOrigin.position, Quaternion.identity);
             var projectile = projectileInstance.GetComponent<Projectile>();
 

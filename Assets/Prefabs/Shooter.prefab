@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 970882525711528441}
   - component: {fileID: 970882525711528440}
   - component: {fileID: 970882525711528443}
+  - component: {fileID: 2667100849804293810}
   m_Layer: 6
   m_Name: Shooter
   m_TagString: Untagged
@@ -129,6 +130,23 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6178972662176859253, guid: e441d91d73dad97409a284c230ffec5f, type: 3}
   shotOrigin: {fileID: 970882525195575449}
   shotVelocity: 10
-  shotDelay: 1
+  delayBetweenShots: 1
+  initialDelay: 0
   projectileTimeToLive: 3
   projectileMaxBounces: 0
+--- !u!70 &2667100849804293810
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970882525711528442}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.84, y: 1.91}
+  m_Direction: 0

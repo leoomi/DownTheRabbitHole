@@ -8,7 +8,7 @@ public class Stairs : MonoBehaviour
     [SerializeField]
     private bool goesUp = true;
     [SerializeField]
-    private float inStayDela = 0.5f;
+    private float inStayDelta = 1f;
 
     private bool isActive = false;
 
@@ -73,7 +73,7 @@ public class Stairs : MonoBehaviour
 
         // Gives player some time understand what's going if we don't have animations
         timeInStay += Time.deltaTime;
-        if (timeInStay > 0.5f)
+        if (timeInStay > inStayDelta)
         {
             LoadScene();
         }
