@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     #region Serializables
     [SerializeField]
-    private float moveSpeed = 5f;
+    private float moveForce = 5f;
     #endregion
 
     #region Components
@@ -38,12 +38,12 @@ public class PlayerController : MonoBehaviour
         var forceToBeAdded = new Vector2();
         if (movementInput.x != 0)
         {
-            forceToBeAdded.x = movementInput.x * moveSpeed;
+            forceToBeAdded.x = movementInput.x * moveForce;
         }
 
         if (movementInput.y != 0)
         {
-            forceToBeAdded.y = movementInput.y * moveSpeed;
+            forceToBeAdded.y = movementInput.y * moveForce;
         }
 
         myRigidbody.AddForce(forceToBeAdded);
