@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    // TODO this should be set by the shooter
     [SerializeField]
     private float timeToLive = 3f;
     private Rigidbody2D myRigibody;
