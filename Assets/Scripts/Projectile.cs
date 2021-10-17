@@ -28,13 +28,4 @@ public class Projectile : MonoBehaviour
         yield return new WaitForSeconds(timeToLive);
         Destroy(gameObject);
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        var isPlayer = other.gameObject.TryGetComponent<PlayerController>(out var _);
-        if (isPlayer)
-        {
-            Destroy(gameObject);
-        }
-    }
 }
