@@ -17,8 +17,8 @@ public class PlayerSpawner : MonoBehaviour
             GameObject player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
             print(player);
             // this isnt assigning
-            GameObject.Find("Camera").GetComponent<CameraFollow>().target = player.transform;
-            print(GameObject.Find("Camera").GetComponent<CameraFollow>().target);
+            // GameObject.Find("Camera").GetComponent<CameraFollow>().target = player.transform;
+            // print(GameObject.Find("Camera").GetComponent<CameraFollow>().target);
         }
     }
 }
