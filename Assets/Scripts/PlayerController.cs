@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour
     #region Serializables
     [SerializeField]
     private float moveForce = 5f;
+    [Range(0.01f, 1f)]
+    private float slowSpeedPercent = 0.5f;
     // rigid-body stuff
     [SerializeField]
-    private float[] linearDrag = new float[3] { 16f, 4f, 0 };
+    private float[] linearDrag = new float[3] { 16f, 4f, 0.05f };
     [SerializeField]
-    private float[] angularDrag = new float[3] { 0.05f, 0.15f, 0 };
+    private float[] angularDrag = new float[3] { 0.05f, 0.15f, 0.01f };
     #endregion
 
     #region Publics
@@ -63,13 +65,13 @@ public class PlayerController : MonoBehaviour
         if (movementInput.x != 0)
         {
             // checks if user input is allowed
-            forceToBeAdded.x = (impedeMovement is false ? movementInput.x : 1) * moveForce * (impedeMovement ? lastInput.x : 1);
+            forceToBeAdded.x = (impedeMovement is false ? movementInput.x : 1) * moveForce * (impedeMovement ? lastInput.x : 1) / (slowMovement ? slowSpeedPercent : 1);
         }
 
         if (movementInput.y != 0)
         {
             // checks if user input is allowed
-            forceToBeAdded.y = (impedeMovement is false ? movementInput.y : 1) * moveForce * (impedeMovement ? lastInput.y : 1);
+            forceToBeAdded.y = (impedeMovement is false ? movementInput.y : 1) * moveForce * (impedeMovement ? lastInput.y : 1) / (slowMovement ? slowSpeedPercent : 1);
         }
 
         direction[0] = (movementInput.x > 0 ? 1 : movementInput.x < 0 ? -1 : 0);
