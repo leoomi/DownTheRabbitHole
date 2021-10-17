@@ -320,7 +320,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: shotDelay
-      value: 0.4
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: shotVelocity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: projectilePrefab
@@ -446,7 +450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: shotDelay
-      value: 0.4
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: shotVelocity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: shotVelocity.x
@@ -461,8 +469,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6178972662176859253, guid: e441d91d73dad97409a284c230ffec5f, type: 3}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: projectileMaxBounces
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: projectileTimeToLive
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
@@ -580,7 +592,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: shotDelay
-      value: 0.4
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: shotVelocity
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: shotVelocity.y

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // maybe we could add a max bounce var? - Red
+    public int maxBounces { get; set; }
     public float timeToLive { get; set; }
     private Rigidbody2D myRigibody;
+    private int bounces = 0;
 
     void Awake()
     {
@@ -27,5 +28,26 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToLive);
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        // Zero is infinite
+        if (maxBounces == 0)
+        {
+            return;
+        }
+
+        var hasProjectileDestroyer = other.gameObject.TryGetComponent<ProjectileDestroyer>(out var _);
+        if (hasProjectileDestroyer)
+        {
+            return;
+        }
+
+        bounces += 1;
+        if (bounces >= maxBounces)
+        {
+            Destroy(gameObject);
+        }
     }
 }

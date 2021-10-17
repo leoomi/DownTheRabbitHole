@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: Shoot Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -128,5 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6178972662176859253, guid: e441d91d73dad97409a284c230ffec5f, type: 3}
   shotOrigin: {fileID: 970882525195575449}
-  shotVelocity: {x: 0, y: -10}
+  shotVelocity: 10
   shotDelay: 1
+  projectileTimeToLive: 3
+  projectileMaxBounces: 0

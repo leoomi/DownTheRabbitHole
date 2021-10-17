@@ -9,11 +9,13 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private Transform shotOrigin;
     [SerializeField]
-    private Vector2 shotVelocity;
+    private float shotVelocity = 10f;
     [SerializeField]
     private float shotDelay;
     [SerializeField]
     private float projectileTimeToLive = 3f;
+    [SerializeField]
+    private int projectileMaxBounces = 0;
 
     void Start()
     {
@@ -29,7 +31,11 @@ public class Shooter : MonoBehaviour
             var projectile = projectileInstance.GetComponent<Projectile>();
 
             projectile.timeToLive = projectileTimeToLive;
-            projectile.SetVelocity(shotVelocity);
+            projectile.maxBounces = projectileMaxBounces;
+
+            Debug.Log(transform.up);
+
+            projectile.SetVelocity(-transform.up * shotVelocity);
         }
     }
 }
