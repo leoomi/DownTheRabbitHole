@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
     // check over this to make sure what I did makes sense - Red
     void FixedUpdate()
     {
+
+        // movement
         var forceToBeAdded = new Vector2();
         if (!impedeMovement) { lastInput = movementInput; }
         if (movementInput.x != 0)
