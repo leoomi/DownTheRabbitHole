@@ -219,11 +219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9061792137275954626, guid: b76edee7b7bcd504c9a23f8ea4c62130, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.63
+      value: -6.6
       objectReference: {fileID: 0}
     - target: {fileID: 9061792137275954626, guid: b76edee7b7bcd504c9a23f8ea4c62130, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.51
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 9061792137275954626, guid: b76edee7b7bcd504c9a23f8ea4c62130, type: 3}
       propertyPath: m_LocalPosition.z
@@ -272,7 +272,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 970882525711528441, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528441, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -330,6 +330,10 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 6178972662176859253, guid: e441d91d73dad97409a284c230ffec5f, type: 3}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: delayBetweenShots
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: projectileTimeToLive
       value: 1
@@ -410,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528441, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.53
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528441, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -468,6 +472,10 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 6178972662176859253, guid: e441d91d73dad97409a284c230ffec5f, type: 3}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: delayBetweenShots
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: projectileMaxBounces
       value: 1
@@ -610,7 +618,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 970882525711528441, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528441, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -672,6 +680,10 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 6178972662176859253, guid: e441d91d73dad97409a284c230ffec5f, type: 3}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: delayBetweenShots
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: projectileTimeToLive
       value: 1
@@ -882,7 +894,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4525437988044513675, guid: dfc810b434d248841bb20aa47a8e6517, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4525437988044513675, guid: dfc810b434d248841bb20aa47a8e6517, type: 3}
       propertyPath: m_LocalScale.x
