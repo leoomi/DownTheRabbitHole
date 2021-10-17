@@ -23,6 +23,8 @@ public class Stairs : MonoBehaviour
 
     // might want to check for projectile/box collision triggering this (could also make for some fun levels if left in?) - Red
     // when falling from a level-up onto the hole/stairs, the behaviour is NOT triggered. This should be fixed.. eventually.. - Red
+    // Bug where you can sometimes spawn on this instead of the x, y, z when switching levels by going DOWN a level. - Red
+    // This behaves fine when going up.
     private void OnTriggerEnter2D(Collider2D other)
     {
         

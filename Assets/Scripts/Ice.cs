@@ -12,6 +12,8 @@ public class Ice : MonoBehaviour
     private bool rotationAllowed = false; // unused (for now)
     [SerializeField]
     private bool movementAllowed = false; // unused (for now)
+    [SerializeField]
+    private bool slowMovement = false;
     #endregion
 
     #region internal
@@ -36,6 +38,7 @@ public class Ice : MonoBehaviour
         // makes readability better
         PlayerController controller = component;
         controller.impedeMovement = true;
+        controller.slowMovement = slowMovement;
 
     }
 
@@ -50,6 +53,7 @@ public class Ice : MonoBehaviour
         // makes readability better
         PlayerController controller = component;
         controller.impedeMovement = false;
+        controller.slowMovement = false;
 
     }
 

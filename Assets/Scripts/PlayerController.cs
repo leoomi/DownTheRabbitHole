@@ -9,14 +9,16 @@ public class PlayerController : MonoBehaviour
     private float moveForce = 5f;
     // rigid-body stuff
     [SerializeField]
-    private float[] linearDrag = new float[2] { 4f, 0 };
+    private float[] linearDrag = new float[3] { 16f, 4f, 0 };
     [SerializeField]
-    private float[] angularDrag = new float[2] { 0.05f, 0 };
+    private float[] angularDrag = new float[3] { 0.05f, 0.15f, 0 };
     #endregion
 
     #region Publics
     // disallows user-input
     public bool impedeMovement = false;
+    [SerializeField]
+    public bool slowMovement = false;
     #endregion
 
     #region Protected
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
         print(forceToBeAdded + " force");
         print(lastForce + " last force");
         print(myRigidbody.velocity + "velocity");
-        myRigidbody.drag = (impedeMovement is false ? linearDrag[0] : linearDrag[1]);
-        myRigidbody.angularDrag = (impedeMovement is false ? angularDrag[0] : angularDrag[1]);
+        myRigidbody.drag = (impedeMovement is false ? linearDrag[1] : slowMovement is false ? linearDrag[2] : linearDrag[0]); // swap
+        myRigidbody.angularDrag = (impedeMovement is false ? angularDrag[1] : slowMovement is false ? angularDrag[2] : angularDrag[0]);
     }
 }
