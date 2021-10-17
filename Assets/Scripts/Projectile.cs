@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
     // maybe we could add a max bounce var? - Red
-    // TODO this should be set by the shooter
-    [SerializeField]
-    private float timeToLive = 3f;
+    public float timeToLive { get; set; }
     private Rigidbody2D myRigibody;
 
     void Awake()

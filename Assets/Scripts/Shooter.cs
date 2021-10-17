@@ -12,6 +12,8 @@ public class Shooter : MonoBehaviour
     private Vector2 shotVelocity;
     [SerializeField]
     private float shotDelay;
+    [SerializeField]
+    private float projectileTimeToLive = 3f;
 
     void Start()
     {
@@ -26,6 +28,7 @@ public class Shooter : MonoBehaviour
             var projectileInstance = Instantiate(projectilePrefab.gameObject, shotOrigin.position, Quaternion.identity);
             var projectile = projectileInstance.GetComponent<Projectile>();
 
+            projectile.timeToLive = projectileTimeToLive;
             projectile.SetVelocity(shotVelocity);
         }
     }

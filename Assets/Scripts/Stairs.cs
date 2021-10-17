@@ -7,8 +7,12 @@ public class Stairs : MonoBehaviour
 {
     [SerializeField]
     private bool goesUp = true;
+    [SerializeField]
+    private float inStayDela = 0.5f;
 
     private bool isActive = false;
+
+    private float timeInStay = 0f;
 
     void Start()
     {
@@ -17,7 +21,7 @@ public class Stairs : MonoBehaviour
 
     private IEnumerator ActivationCoroutine()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         isActive = true;
     }
 
@@ -27,11 +31,16 @@ public class Stairs : MonoBehaviour
     // This behaves fine when going up.
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
         // workaround for ice/(hole/stairs) down behaviour - Red
         // ensure the gameobject is in fact the player
-        GameObject gameObj = other.gameObject;
+        var gameObj = other.gameObject;
         var component = gameObj.GetComponent<PlayerController>();
+
+        if (!component)
+        {
+            return;
+        }
+
         // not player
         if (component) component.impedeMovement = false;
 
@@ -41,13 +50,39 @@ public class Stairs : MonoBehaviour
             return;
         }
 
+        LoadScene();
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        // workaround for ice/(hole/stairs) down behaviour - Red
+        // ensure the gameobject is in fact the player
+        var gameObj = other.gameObject;
+        var component = gameObj.GetComponent<PlayerController>();
+
+        if (!component)
+        {
+            return;
+        }
+
+        // Workaround to avoid player to change the scene when falling/going up to a stairs object
+        if (!isActive)
+        {
+            return;
+        }
+
+        // Gives player some time understand what's going if we don't have animations
+        timeInStay += Time.deltaTime;
+        if (timeInStay > 0.5f)
+        {
+            LoadScene();
+        }
+    }
+
+    private void LoadScene()
+    {
         var currentIndex = SceneManager.GetActiveScene().buildIndex;
         var destinationIndex = currentIndex + (goesUp ? 1 : - 1);
-        Debug.Log(currentIndex);
-
-        
-
-
         SceneManager.LoadScene(destinationIndex);
     }
 }
