@@ -37,8 +37,6 @@ public class Shooter : MonoBehaviour
             projectile.timeToLive = projectileTimeToLive;
             projectile.maxBounces = projectileMaxBounces;
 
-            Debug.Log(transform.up);
-
             projectile.SetVelocity(-transform.up * shotVelocity);
         }
     }
