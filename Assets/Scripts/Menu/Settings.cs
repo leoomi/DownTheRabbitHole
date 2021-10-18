@@ -123,7 +123,6 @@ public class Settings : MonoBehaviour
 
     public void qualitySettingsApply()
     {
-
         // everything thats not audio settings
         Application.targetFrameRate = userSettings.framerate;
         QualitySettings.vSyncCount = userSettings.vsync;
@@ -144,7 +143,7 @@ public class Settings : MonoBehaviour
         print(SFXMixer);
         SFXMixer.SetFloat("musicVol", Mathf.Log10(volumeSFX) * 20);
         MusicMixer.SetFloat("musicVol", Mathf.Log10(volumeMusic) * 20);
-        AudioSettings.speakerMode = userSettings.audioMode;
+        // AudioSettings.speakerMode = userSettings.audioMode;
 
         // TODO dump to json?
         // do in different method that gets called on button press
@@ -195,9 +194,10 @@ public class Settings : MonoBehaviour
         //AudioMixer MusicMixerGroup = Resources.Load<AudioMixer>("Resources/Music");
         //AudioMixer SFXMixerGroup = Resources.Load<AudioMixer>("Resources/SFX");
         print(SFXMixer);
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(canvas);
-        loadJSON();
+        // loadJSON();
         qualitySettingsApply();
         audioSettingsApply();
     }

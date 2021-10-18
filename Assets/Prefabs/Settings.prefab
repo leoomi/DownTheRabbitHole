@@ -191,11 +191,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userSettings:
-    framerate: 0
+    framerate: 120
     vsync: 0
-    volumeMusic: 0
-    volumeSFX: 0
-    qualityLevel: 0
+    volumeMusic: 1
+    volumeSFX: 1
+    qualityLevel: 2
     fullscreen: 0
     audioMode: 0
   canvas: {fileID: 932787075597757282}
@@ -4888,7 +4888,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 579175922175455864}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: qualityButtonMenuActivate
+        m_MethodName: qualitySettingsApply
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
