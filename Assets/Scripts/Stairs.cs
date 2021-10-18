@@ -42,6 +42,11 @@ public class Stairs : MonoBehaviour
             return;
         }
 
+        if (component.state != PlayerState.Normal)
+        {
+            return;
+        }
+
         // not player
         if (component) component.impedeMovement = false;
 
@@ -51,7 +56,7 @@ public class Stairs : MonoBehaviour
             return;
         }
 
-        LoadScene();
+        SetupPlayerToLoadScene();
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -67,7 +72,7 @@ public class Stairs : MonoBehaviour
         }
 
         // Workaround to avoid player to change the scene when falling/going up to a stairs object
-        if (!isActive)
+        if (!isActive || component.state != PlayerState.Normal)
         {
             return;
         }
@@ -76,8 +81,15 @@ public class Stairs : MonoBehaviour
         timeInStay += Time.deltaTime;
         if (timeInStay > inStayDelta)
         {
-            LoadScene();
+            SetupPlayerToLoadScene();
         }
+    }
+
+    private void SetupPlayerToLoadScene()
+    {
+        var player = PlayerController.instance;
+
+        player.GoDown(LoadScene, this.gameObject);
     }
 
     private void LoadScene()

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool impedeMovement = false;
     [SerializeField]
     public bool slowMovement = false;
+    public PlayerState state = PlayerState.Normal;
     #endregion
 
     #region Protected
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     #region Components
     private Rigidbody2D myRigidbody;
+    private Animator animator;
     #endregion Components
 
     #region privates properties
@@ -36,17 +40,20 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveVelocity;
     private Vector2 lastInput;
     private Vector2 lastForce;
+    private Vector2 storedVelocityForTransition;
+    private Vector3 storedPositionForTransition;
     #endregion
 
-    public static bool isSpawned = false;
+    public static PlayerController instance = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        isSpawned = true;
+        instance = this;
         myRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         DontDestroyOnLoad(gameObject);
-        // check here if on a stair tile
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
@@ -61,7 +68,16 @@ public class PlayerController : MonoBehaviour
     // check over this to make sure what I did makes sense - Red
     void FixedUpdate()
     {
+       switch (state)
+       {
+            case PlayerState.Normal:
+                NormalFixedUpdate();
+                break;
+       }
+    }
 
+    private void NormalFixedUpdate()
+    {
         // movement
         var forceToBeAdded = new Vector2();
         if (!impedeMovement) { lastInput = movementInput; }
@@ -85,7 +101,64 @@ public class PlayerController : MonoBehaviour
         //myRigidbody.mass = (impedeMovement is false ? 1 : 0);
         //myRigidbody.AddForce(lastForce + new Vector2(1f * direction[0], 1f * direction[1]));
         myRigidbody.AddForce(lastForce);
+        // print(forceToBeAdded + " force");
+        // print(lastForce + " last force");
+        // print(myRigidbody.velocity + "velocity");
         myRigidbody.drag = (impedeMovement is false ? linearDrag[1] : slowMovement is false ? linearDrag[2] : linearDrag[0]); // swap
         myRigidbody.angularDrag = (impedeMovement is false ? angularDrag[1] : slowMovement is false ? angularDrag[2] : angularDrag[0]);
     }
+
+    private void OnSceneLoaded(Scene _, LoadSceneMode __)
+    {
+        state = PlayerState.Normal;
+        animator.SetTrigger("Walk");
+        RestoreVelocityPosition();
+    }
+
+    public void GoUp(Action loadSceneAction)
+    {
+
+    }
+
+    public void GoDown(Action loadSceneAction, GameObject stairsGameObject)
+    {
+        state = PlayerState.Falling;
+        animator.SetTrigger("Fall");
+        StoreVelocityPosition();
+
+        Vector3 velocityDirection = storedVelocityForTransition.normalized;
+        var direction = (stairsGameObject.transform.position - transform.position).normalized;
+        StartCoroutine(MoveCoroutine(transform.position, transform.position + direction, 1f, loadSceneAction));
+    }
+
+    IEnumerator MoveCoroutine(Vector3 beginPos, Vector3 endPos, float time, Action callback){
+        for(float t = 0; t < 1; t += Time.deltaTime / time)
+        {
+            transform.position = Vector3.Lerp(beginPos, endPos, t);
+            yield return null;
+        }
+        callback();
+    }
+
+    private void StoreVelocityPosition()
+    {
+        storedVelocityForTransition = myRigidbody.velocity;
+        storedPositionForTransition = transform.position;
+        myRigidbody.velocity = Vector2.zero;
+        myRigidbody.isKinematic = true;
+    }
+
+    private void RestoreVelocityPosition()
+    {
+        myRigidbody.velocity = storedVelocityForTransition;
+        transform.position = storedPositionForTransition;
+        storedVelocityForTransition = Vector2.zero;
+        myRigidbody.isKinematic = false;
+    }
+}
+
+public enum PlayerState
+{
+    Normal,
+    Falling
 }
