@@ -110,20 +110,6 @@ public class Settings : MonoBehaviour
 
     }
 
-    protected void loadQualitySettingsOptions()
-    {
-        // QualitySettings
-        string[] qo = QualitySettings.names;
-        QualityDd.options = new List<Dropdown.OptionData>();
-        foreach (string opt in qo)
-        {
-            QualityDd.options.Add(new Dropdown.OptionData(opt));
-        }
-
-        // Resolution
-        Resolution[] ro = Screen.resolutions;
-    }
-
     // TODO make all the sliders show their values on initialisation
 
     public void getQualitySettingsFromUI()
@@ -207,7 +193,7 @@ public class Settings : MonoBehaviour
     {
         //AudioMixer MusicMixerGroup = Resources.Load<AudioMixer>("Resources/Music");
         //AudioMixer SFXMixerGroup = Resources.Load<AudioMixer>("Resources/SFX");
-        loadQualitySettingsOptions();
+        print(SFXMixer);
         DontDestroyOnLoad(this);
         //DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(canvas);

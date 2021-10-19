@@ -128,8 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6178972662176859253, guid: e441d91d73dad97409a284c230ffec5f, type: 3}
-  shotOrigin:
-  - {fileID: 970882525195575449}
+  shotOrigin: {fileID: 970882525195575449}
   shotVelocity: 10
   delayBetweenShots: 1
   initialDelay: 0
