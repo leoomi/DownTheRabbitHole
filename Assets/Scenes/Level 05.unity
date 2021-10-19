@@ -561,6 +561,10 @@ PrefabInstance:
       value: Shooter (1)
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: heatseeking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: initialDelay
       value: 0
       objectReference: {fileID: 0}

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 // using UnityEngine.UIElements;
 using UnityEngine.Audio;
+using System.Linq;
 
 public class Settings : MonoBehaviour
 {
@@ -122,6 +123,11 @@ public class Settings : MonoBehaviour
 
         // Resolution
         Resolution[] ro = Screen.resolutions;
+        ResolutionDd.options = new List<Dropdown.OptionData>();
+        foreach (Resolution res in ro)
+        {
+            ResolutionDd.options.Add(new Dropdown.OptionData($"{res.width}x{res.height} {res.refreshRate}hz"));
+        }
     }
 
     // TODO make all the sliders show their values on initialisation
@@ -227,6 +233,7 @@ public class Settings : MonoBehaviour
             audioSettingsGO.SetActive(false);
             qualitySettingsGO.SetActive(false);
             canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
+            //Time.timeScale = 1; // pauses game
         }
     }
 }
