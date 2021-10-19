@@ -223,10 +223,10 @@ public class Settings : MonoBehaviour
         // TODO freeze movement? 
         if (Input.GetButton("Menu"))
         {
-            optionsGO.SetActive(true);
+            optionsGO.SetActive(!optionsGO.gameObject.activeSelf);
             audioSettingsGO.SetActive(false);
             qualitySettingsGO.SetActive(false);
-            canvas.gameObject.SetActive(true);
+            canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
         }
     }
 }

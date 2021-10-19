@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Box
+  - Ice
+  - Mud
   layers:
   - Default
   - TransparentFX

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int maxBounces { get; set; }
-    public float timeToLive { get; set; }
+    public int maxBounces { get; set; } = 0;
+    public float timeToLive { get; set; } = 10f;
     public float angleChangingSpeed { get; set; } = 400;
     private Rigidbody2D myRigibody;
     private int bounces = 0;
@@ -90,7 +90,6 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         target = t;
-        print(t);
     }
 
     public IEnumerator forgetTarget(float seconds = 0.1f)
