@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    #region Serialized
     [SerializeField]
     private GameObject projectilePrefab;
     [SerializeField]
-    private Transform shotOrigin;
+    private Transform[] shotOrigin;
     [SerializeField]
     private float shotVelocity = 10f;
     [SerializeField]
@@ -19,15 +20,16 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private int projectileMaxBounces = 0;
     [SerializeField]
-    [Range(-30, 30)]
-    private float[] spray = new float[2] { 0, 0 }; // no spray by default
+    private bool heatseeking = false;
     [SerializeField]
-    [Range(2, 0)]
-    private float rotationMultiplier = 1f;
+    private bool targetPlayer = false; // unused
     [SerializeField]
-    private Vector2 maximumRotation = new Vector2(10, 10);
-    [SerializeField]
-    private bool backAndForthSpray = true;
+    private float projectileForgetTime = 0.1f;
+    #endregion
+
+    #region Privates
+    private GameObject target = null;
+    #endregion
 
     void Start()
     {
@@ -38,22 +40,28 @@ public class Shooter : MonoBehaviour
     {
         yield return new WaitForSeconds(initialDelay);
 
+        if (heatseeking is true && target == null) target = GameObject.FindGameObjectWithTag("Player");
+
         while (true)
         {
             yield return new WaitForSeconds(delayBetweenShots);
-            var projectileInstance = Instantiate(projectilePrefab.gameObject, shotOrigin.position, Quaternion.identity);
-            var projectile = projectileInstance.GetComponent<Projectile>();
+            for (int i = 0; i < shotOrigin.Length; i++)
+            {
+                GameObject projectileInstance = Projectile.CreateProjectile(projectilePrefab, -shotOrigin[i].transform.up, shotOrigin[i], Quaternion.identity, shotVelocity, projectileForgetTime);
+                var projectile = projectileInstance.GetComponent<Projectile>();
+                //projectileInstance.AddComponent(projectileScript);
 
-            projectile.timeToLive = projectileTimeToLive;
-            projectile.maxBounces = projectileMaxBounces;
+                projectile.timeToLive = projectileTimeToLive;
+                projectile.maxBounces = projectileMaxBounces;
 
-            print(transform.up);
-            // kind of has a mind of its own but will stay mostly within range (will deviate mostly if the multiplier is touched
-            (float, float) sprayRange = (spray[0] > spray[1] ? (spray[1], spray[0]) : (spray[0], spray[1])); // random spray
-            float toadd = Random.Range(sprayRange.Item1, sprayRange.Item2);
-            float toadd2 = ((toadd + transform.rotation.z) < transform.up.z - sprayRange.Item1 ? -toadd : (transform.transform.rotation.z - toadd) > transform.transform.rotation.z - sprayRange.Item2 ? toadd : -toadd);
-            transform.Rotate(0, 0, (maximumRotation.y < (toadd2 + transform.rotation.z) ? toadd : maximumRotation.x > (toadd2 + transform.transform.rotation.z) ? -toadd : toadd2));
-            projectile.SetVelocity(-transform.up * shotVelocity);
+                //Debug.Log(transform.up);
+
+                StartCoroutine(projectile.waitToSetTarget(heatseeking is true ? target != null ? target.transform : null : null));
+                //projectile.SetTarget(heatseeking is true ? target != null ? target.transform : null : null);
+                //projectile.forgetTarget(2f);
+                //projectile.SetInitialVelocity(-shotOrigin[i].transform.up * shotVelocity);
+            }
         }
     }
+
 }

@@ -64,7 +64,7 @@ public class Settings : MonoBehaviour
 
         [Range(30, 300)]
         public int framerate;
-        [Range(0,2)]
+        [Range(0, 2)]
         public int vsync;
         public Resolution res;
         [Range(0.0001f, 1f)]
@@ -108,6 +108,20 @@ public class Settings : MonoBehaviour
 
         this.userSettings = userSettings;
 
+    }
+
+    protected void loadQualitySettingsOptions()
+    {
+        // QualitySettings
+        string[] qo = QualitySettings.names;
+        QualityDd.options = new List<Dropdown.OptionData>();
+        foreach (string opt in qo)
+        {
+            QualityDd.options.Add(new Dropdown.OptionData(opt));
+        }
+
+        // Resolution
+        Resolution[] ro = Screen.resolutions;
     }
 
     // TODO make all the sliders show their values on initialisation
@@ -193,7 +207,7 @@ public class Settings : MonoBehaviour
     {
         //AudioMixer MusicMixerGroup = Resources.Load<AudioMixer>("Resources/Music");
         //AudioMixer SFXMixerGroup = Resources.Load<AudioMixer>("Resources/SFX");
-        print(SFXMixer);
+        loadQualitySettingsOptions();
         DontDestroyOnLoad(this);
         //DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(canvas);
@@ -207,8 +221,8 @@ public class Settings : MonoBehaviour
     {
         // need to check button press for ESC
         // TODO freeze movement? 
-        if (Input.GetButton("Menu")) 
-        { 
+        if (Input.GetButton("Menu"))
+        {
             optionsGO.SetActive(true);
             audioSettingsGO.SetActive(false);
             qualitySettingsGO.SetActive(false);
