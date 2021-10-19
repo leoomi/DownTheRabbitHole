@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     #region Components
     private Rigidbody2D myRigidbody;
     private Animator animator;
+    private Sprite sprite;
     #endregion Components
 
     #region privates properties
@@ -115,27 +116,44 @@ public class PlayerController : MonoBehaviour
         RestoreVelocityPosition();
     }
 
-    public void GoUp(Action loadSceneAction)
+    public void GoUp(Action loadSceneAction, Vector3 stairsPosition)
     {
+        state = PlayerState.Falling; // In terms of the fixed update, rising == falling
+        animator.SetTrigger("Rise");
+        StoreVelocityPosition();
 
+        Vector3 velocityDirection = storedVelocityForTransition.normalized;
+        StartCoroutine(MoveCoroutine(transform.position, stairsPosition, 0.2f));
+        StartCoroutine(LoadSceneCoroutine(1f, loadSceneAction));
     }
 
-    public void GoDown(Action loadSceneAction, GameObject stairsGameObject)
+    private IEnumerator LoadSceneCoroutine(float delay, Action callback)
+    {
+        yield return new WaitForSeconds(delay);
+        callback();
+    }
+
+    public void GoDown(Action loadSceneAction, Collider2D stairsCollider)
     {
         state = PlayerState.Falling;
         animator.SetTrigger("Fall");
         StoreVelocityPosition();
 
-        Vector3 velocityDirection = storedVelocityForTransition.normalized;
-        var direction = (stairsGameObject.transform.position - transform.position).normalized;
-        StartCoroutine(MoveCoroutine(transform.position, transform.position + direction, 1f, loadSceneAction));
+        Vector3 closestPoint = stairsCollider.ClosestPoint(transform.position);
+        var direction = (closestPoint- transform.position).normalized;
+        StartCoroutine(MoveCoroutine(transform.position, transform.position + 1.5f * direction, 1f, loadSceneAction));
     }
 
-    IEnumerator MoveCoroutine(Vector3 beginPos, Vector3 endPos, float time, Action callback){
+    private IEnumerator MoveCoroutine(Vector3 beginPos, Vector3 endPos, float time, Action callback = null){
         for(float t = 0; t < 1; t += Time.deltaTime / time)
         {
             transform.position = Vector3.Lerp(beginPos, endPos, t);
             yield return null;
+        }
+
+        if (callback == null)
+        {
+            yield break;
         }
         callback();
     }

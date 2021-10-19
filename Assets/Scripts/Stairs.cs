@@ -11,13 +11,13 @@ public class Stairs : MonoBehaviour
     private float inStayDelta = 1f;
 
     private bool isActive = false;
-
     private float timeInStay = 0f;
+    private Collider2D myCollider;
 
     void Start()
     {
         StartCoroutine(ActivationCoroutine());
-
+        myCollider = GetComponent<Collider2D>();
     }
 
     private IEnumerator ActivationCoroutine()
@@ -89,7 +89,12 @@ public class Stairs : MonoBehaviour
     {
         var player = PlayerController.instance;
 
-        player.GoDown(LoadScene, this.gameObject);
+        if (goesUp)
+        {
+            player.GoUp(LoadScene, transform.position);
+            return;
+        }
+        player.GoDown(LoadScene, myCollider);
     }
 
     private void LoadScene()
