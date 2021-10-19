@@ -64,7 +64,7 @@ public class Settings : MonoBehaviour
 
         [Range(30, 300)]
         public int framerate;
-        [Range(0,2)]
+        [Range(0, 2)]
         public int vsync;
         public Resolution res;
         [Range(0.0001f, 1f)]
@@ -221,12 +221,12 @@ public class Settings : MonoBehaviour
     {
         // need to check button press for ESC
         // TODO freeze movement? 
-        if (Input.GetButton("Menu")) 
-        { 
-            optionsGO.SetActive(true);
+        if (Input.GetButton("Menu"))
+        {
+            optionsGO.SetActive(!optionsGO.gameObject.activeSelf);
             audioSettingsGO.SetActive(false);
             qualitySettingsGO.SetActive(false);
-            canvas.gameObject.SetActive(true);
+            canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
         }
     }
 }

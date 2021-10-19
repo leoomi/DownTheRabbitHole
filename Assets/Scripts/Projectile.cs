@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int maxBounces { get; set; }
-    public float timeToLive { get; set; }
+    public int maxBounces { get; set; } = 0;
+    public float timeToLive { get; set; } = 10f;
     public float angleChangingSpeed { get; set; } = 400;
     private Rigidbody2D myRigibody;
     private int bounces = 0;
@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     private float shotVelocity = 1f;
     private bool bounce = false;
     private float waittime;
-    
+
     void Awake()
     {
         myRigibody = GetComponent<Rigidbody2D>();
@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
     }
 
     // factory design method babyyy
-    public static GameObject CreateProjectile(GameObject projectilePrefab, Vector2 velocity, Transform shotOrigin, Quaternion q, float shotVelocity=1f, float waittime = 0.1f)
+    public static GameObject CreateProjectile(GameObject projectilePrefab, Vector2 velocity, Transform shotOrigin, Quaternion q, float shotVelocity = 1f, float waittime = 0.1f)
     {
         var projectileInstance = Instantiate(projectilePrefab.gameObject, shotOrigin.position, Quaternion.identity);
 
@@ -56,8 +56,9 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         //print(target);
-        if (target) {
-            Vector2 direction = (Vector2) target.position - myRigibody.position;
+        if (target)
+        {
+            Vector2 direction = (Vector2)target.position - myRigibody.position;
             direction.Normalize();
             float rot = Vector3.Cross(direction, transform.up).z;
             //print(rot);
@@ -85,18 +86,18 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public IEnumerator waitToSetTarget(Transform t, float seconds = 0.5f) 
-    { 
-        yield return new WaitForSeconds(seconds); 
+    public IEnumerator waitToSetTarget(Transform t, float seconds = 0.5f)
+    {
+        yield return new WaitForSeconds(seconds);
         target = t;
-        print(t);
     }
 
-    public IEnumerator forgetTarget(float seconds=0.1f)
+    public IEnumerator forgetTarget(float seconds = 0.1f)
     {
         Transform actualTarget = null;
         bounce = true;
-        if (target) { 
+        if (target)
+        {
             actualTarget = target;
             target = null;
         }

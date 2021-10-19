@@ -45,7 +45,8 @@ public class Shooter : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(delayBetweenShots);
-            for (int i = 0; i < shotOrigin.Length; i++) { 
+            for (int i = 0; i < shotOrigin.Length; i++)
+            {
                 GameObject projectileInstance = Projectile.CreateProjectile(projectilePrefab, -shotOrigin[i].transform.up, shotOrigin[i], Quaternion.identity, shotVelocity, projectileForgetTime);
                 var projectile = projectileInstance.GetComponent<Projectile>();
                 //projectileInstance.AddComponent(projectileScript);
