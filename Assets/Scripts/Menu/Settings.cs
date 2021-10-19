@@ -12,6 +12,10 @@ public class Settings : MonoBehaviour
     [SerializeField]
     UserSettings userSettings;
 
+    #region privates
+    private bool cooldown = false;
+    #endregion
+
     #region UI
     // main UI
     [SerializeField]
@@ -91,6 +95,13 @@ public class Settings : MonoBehaviour
 
     }
 
+    /*IEnumerator Cooldown(float seconds=0.1f)
+    {
+        cooldown = true;
+        yield return new WaitForSeconds(seconds);
+        cooldown = false;
+    }*/
+
     // load me daddy
     protected void loadJSON()
     {
@@ -130,8 +141,7 @@ public class Settings : MonoBehaviour
         }
     }
 
-    // TODO make all the sliders show their values on initialisation
-
+    // TODO make all the sliders show their values on initialisation (done!) - Red
     public void getQualitySettingsFromUI()
     {
         // gets the menu's setting opt
@@ -218,8 +228,8 @@ public class Settings : MonoBehaviour
         //DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(canvas);
         // loadJSON();
-        qualitySettingsApply();
-        audioSettingsApply();
+        //qualitySettingsApply();
+        //audioSettingsApply();
     }
 
     // Update is called once per frame
@@ -227,13 +237,14 @@ public class Settings : MonoBehaviour
     {
         // need to check button press for ESC
         // TODO freeze movement? 
-        if (Input.GetButton("Menu"))
+        /*if (Input.GetKeyDown(KeyCode.Escape)) // this works but Input.GetButtonDown("Menu") doesnt? Why, Unity?
         {
             optionsGO.SetActive(!optionsGO.gameObject.activeSelf);
             audioSettingsGO.SetActive(false);
             qualitySettingsGO.SetActive(false);
             canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
             //Time.timeScale = 1; // pauses game
-        }
+            StartCoroutine(Cooldown());
+        }*/
     }
 }

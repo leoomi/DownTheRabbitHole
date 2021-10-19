@@ -17,6 +17,7 @@ public class Stairs : MonoBehaviour
     void Start()
     {
         StartCoroutine(ActivationCoroutine());
+
     }
 
     private IEnumerator ActivationCoroutine()

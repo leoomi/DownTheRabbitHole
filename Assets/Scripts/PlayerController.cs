@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         isSpawned = true;
         myRigidbody = GetComponent<Rigidbody2D>();
         DontDestroyOnLoad(gameObject);
+        // check here if on a stair tile
     }
 
     // Update is called once per frame

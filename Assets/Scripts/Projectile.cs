@@ -15,6 +15,8 @@ public class Projectile : MonoBehaviour
     private float shotVelocity = 1f;
     private bool bounce = false;
     private float waittime;
+    [SerializeField]
+    private Transform origin;
 
     void Awake()
     {
@@ -35,7 +37,10 @@ public class Projectile : MonoBehaviour
         Instance.myRigibody.velocity = velocity * shotVelocity;
         Instance.shotVelocity = shotVelocity;
         Instance.waittime = waittime;
-        Instance.gameObject.transform.SetPositionAndRotation(Instance.gameObject.transform.position, shotOrigin.rotation);
+        // this doesnt want to rotate the projectile WHY
+        Quaternion rot = new Quaternion(shotOrigin.rotation.x, shotOrigin.rotation.y, shotOrigin.transform.rotation.z, 0);
+        Instance.gameObject.transform.SetPositionAndRotation(Instance.gameObject.transform.position, rot);
+        Instance.origin = shotOrigin;
         //Instance.myRigibody
 
         return projectileInstance;

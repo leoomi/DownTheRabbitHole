@@ -201,7 +201,7 @@ MonoBehaviour:
   projectileMaxBounces: 4
   heatseeking: 0
   targetPlayer: 0
-  projectileForgetTime: 0.1
+  projectileForgetTime: 1
 --- !u!70 &5014285900449928108
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
