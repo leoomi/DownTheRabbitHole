@@ -84,9 +84,6 @@ public class PlayerController : MonoBehaviour
         //myRigidbody.mass = (impedeMovement is false ? 1 : 0);
         //myRigidbody.AddForce(lastForce + new Vector2(1f * direction[0], 1f * direction[1]));
         myRigidbody.AddForce(lastForce);
-        print(forceToBeAdded + " force");
-        print(lastForce + " last force");
-        print(myRigidbody.velocity + "velocity");
         myRigidbody.drag = (impedeMovement is false ? linearDrag[1] : slowMovement is false ? linearDrag[2] : linearDrag[0]); // swap
         myRigidbody.angularDrag = (impedeMovement is false ? angularDrag[1] : slowMovement is false ? angularDrag[2] : angularDrag[0]);
     }
