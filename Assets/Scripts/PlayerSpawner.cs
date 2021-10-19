@@ -16,7 +16,7 @@ public class PlayerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!PlayerController.isSpawned)
+        if (PlayerController.instance == null)
         {
             GameObject player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
             GameObject menu = Instantiate(menuPrefab, Vector3.zero, Quaternion.identity);
