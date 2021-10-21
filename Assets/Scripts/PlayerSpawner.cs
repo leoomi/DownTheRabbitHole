@@ -59,10 +59,11 @@ public class PlayerSpawner : MonoBehaviour
         CameraFollow camFollow = camController.GetComponent<CameraFollow>();
         camFollow.target = player.transform;
         camFollow.cam = cam;
+        
         // because I need to make sure that the height is actually appropriate if no settings are found.
-        camFollow.height = (levelSettings.Length >= level ? (levelSettings[level].activateSettings ? -levelSettings[level].height : -5f) : -5f); 
+        camFollow.height = (levelSettings.Length -1 >= level ? (levelSettings[level].activateSettings ? -levelSettings[level].height : -5f) : -5f); 
         // each level can have camera settings applied here
-        if (levelSettings.Length >= level) {
+        if (levelSettings.Length -1 >= level) {
             LevelSettings currentLevel = levelSettings[level];
             if (currentLevel.activateSettings)
             {
