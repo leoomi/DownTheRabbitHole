@@ -20,6 +20,8 @@ public class CameraFollow : MonoBehaviour
     public GameObject gameFloor;
     [SerializeField]
     public float height;
+    [SerializeField]
+    private bool toggleScaling = false;
     protected float ratio = 2f;
     protected float smoothSpeed = 3f;
     public Vector2 fixedLocation = new Vector2(0, 0);
@@ -45,6 +47,10 @@ private void Start()
 
     public void scaleCameraOrthographicSize()
     {
+        if (!toggleScaling)
+        {
+            return;
+        }
         Resolution current = Screen.currentResolution;
         float aspect = (float)current.width / (float)current.height;
         float orthoSize = scalefactor / aspect / 200;
@@ -58,14 +64,14 @@ private void Start()
     // Update is called once per frame
     void FixedUpdate()
     {
-        // should change only when changing resolution? 
+        // should change only when changing resolution?
         // it will do for now
         scaleCameraOrthographicSize();
 
         if (target)
         {
             float time = Time.deltaTime;
-            // maybe I should make these exposed? 
+            // maybe I should make these exposed?
             //float camY = Mathf.Clamp(target.transform.position.y, yMin + cam.orthographicSize, yMax - cam.orthographicSize);
             //float camX = Mathf.Clamp(target.transform.position.x, xMin + ((xMax + cam.orthographicSize) / ratio), xMax - ((xMax + cam.orthographicSize) / ratio));
             /*float camX = target.transform.position.x;
@@ -73,14 +79,14 @@ private void Start()
             this.transform.position = new Vector3(camX, camY, this.transform.position.z);
             */
 
-            if (toggleFollow) 
+            if (toggleFollow)
             {
                 Vector3 pos = new Vector3(target.position.x, target.position.y, height);
                 pos.x = Mathf.Clamp(pos.x, lbound, rbound);
                 pos.y = Mathf.Clamp(pos.y, bbound, tbound);
                 cam.gameObject.transform.position = pos;
             } else cam.gameObject.transform.position = new Vector3(fixedLocation.x, fixedLocation.y, height);
-            
+
             /*Vector3.Lerp(
                 this.transform.position,
                 new Vector3(camX, camY, this.transform.position.z), smoothSpeed
