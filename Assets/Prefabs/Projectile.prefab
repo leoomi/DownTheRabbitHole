@@ -59,7 +59,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightOuterRadius: 3
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 6178972662176859252}
   - component: {fileID: 5060596484890169166}
   - component: {fileID: 6760644877075301281}
-  - component: {fileID: 1765013102148923443}
+  - component: {fileID: 1112733219831087650}
   m_Layer: 6
   m_Name: Projectile
   m_TagString: Untagged
@@ -143,22 +143,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!58 &1765013102148923443
-CircleCollider2D:
+--- !u!114 &1112733219831087650
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6178972662176859253}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.55
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c007ad78ea68447bbe24999be8614d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myLight: {fileID: 7948586819780902878}
+  waitBeforeLockon: 1.5
+  target: {fileID: 0}
+  origin: {fileID: 0}
 --- !u!1 &6178972662539157599
 GameObject:
   m_ObjectHideFlags: 0
