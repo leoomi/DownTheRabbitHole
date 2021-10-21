@@ -1224,7 +1224,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2239807945400093513, guid: 535c3172da23e724fa56ac014dab2e8e, type: 3}
       propertyPath: m_Name
-      value: PlayerSpawner (1)
+      value: PlayerSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 2239807945400093513, guid: 535c3172da23e724fa56ac014dab2e8e, type: 3}
       propertyPath: m_IsActive
@@ -1236,11 +1236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239807945400093515, guid: 535c3172da23e724fa56ac014dab2e8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.73
+      value: 7.4
       objectReference: {fileID: 0}
     - target: {fileID: 2239807945400093515, guid: 535c3172da23e724fa56ac014dab2e8e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.11
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 2239807945400093515, guid: 535c3172da23e724fa56ac014dab2e8e, type: 3}
       propertyPath: m_LocalPosition.z
