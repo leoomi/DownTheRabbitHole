@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1479941033512689457}
   - component: {fileID: 1479941033512689456}
-  - component: {fileID: 1479941033512689458}
   m_Layer: 0
   m_Name: Firefly Light
   m_TagString: Untagged
@@ -73,15 +72,3 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &1479941033512689458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1479941033512689455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b08a9754557e624459be744a2916c6cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
