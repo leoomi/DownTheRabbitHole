@@ -32,7 +32,10 @@ public class GameButton : MonoBehaviour
             return;
         }
 
-        onButtonPressEvent?.Invoke();
+        if (onButtonPressEvent.GetPersistentEventCount() > 0)
+        {
+            onButtonPressEvent?.Invoke();
+        }
 
         // TODO: Temporary visuals, replace with actual sprites
         sprite.color = Color.cyan;
@@ -57,7 +60,10 @@ public class GameButton : MonoBehaviour
             return;
         }
 
-        onButtonReleasedEvent?.Invoke();
+        if (onButtonPressEvent.GetPersistentEventCount() > 0)
+        {
+             onButtonReleasedEvent?.Invoke();
+        }
         // TODO: Temporary visuals, replace with actual sprites
         sprite.color = Color.red;
     }

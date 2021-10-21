@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     #region Components
     private Rigidbody2D myRigidbody;
+    private Collider2D myCollider;
     private Animator animator;
     private Sprite sprite;
     #endregion Components
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
         myRigidbody = GetComponent<Rigidbody2D>();
+        myCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -164,6 +166,7 @@ public class PlayerController : MonoBehaviour
         storedPositionForTransition = transform.position;
         myRigidbody.velocity = Vector2.zero;
         myRigidbody.isKinematic = true;
+        myCollider.enabled = false;
     }
 
     private void RestoreVelocityPosition()
@@ -172,6 +175,7 @@ public class PlayerController : MonoBehaviour
         transform.position = storedPositionForTransition;
         storedVelocityForTransition = Vector2.zero;
         myRigidbody.isKinematic = false;
+        myCollider.enabled = true;
     }
 }
 

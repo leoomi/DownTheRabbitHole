@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField]
+    private Light2D myLight;
+    [SerializeField]
+    private float waitBeforeLockon = 1.5f;
     public int maxBounces { get; set; } = 0;
     public float timeToLive { get; set; } = 10f;
     public float angleChangingSpeed { get; set; } = 400;
     private Rigidbody2D myRigibody;
     private int bounces = 0;
     public Transform target = null;
-    [SerializeField]
-    private float waitBeforeLockon = 1.5f;
     private float shotVelocity = 1f;
     private bool bounce = false;
     private float waittime;
@@ -33,7 +36,7 @@ public class Projectile : MonoBehaviour
     {
         var projectileInstance = Instantiate(projectilePrefab.gameObject, shotOrigin.position, Quaternion.identity);
 
-        Projectile Instance = projectileInstance.AddComponent<Projectile>();
+        var Instance = projectileInstance.GetComponent<Projectile>();
         Instance.myRigibody.velocity = velocity * shotVelocity;
         Instance.shotVelocity = shotVelocity;
         Instance.waittime = waittime;
@@ -111,6 +114,11 @@ public class Projectile : MonoBehaviour
 
         if (actualTarget) { target = actualTarget; }
         bounce = false;
+    }
+
+    public void SetLightRadius(float radius)
+    {
+        myLight.pointLightOuterRadius = radius;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
