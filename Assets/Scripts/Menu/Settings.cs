@@ -80,7 +80,7 @@ public class Settings : MonoBehaviour
         public int qualityLevel;
         public bool fullscreen;
         public AudioSpeakerMode audioMode;
-
+        
         public UserSettings(int fr, int vs, Resolution r, float vm, float vsy, int ql, bool fs, AudioSpeakerMode asm)
         {
             framerate = fr;

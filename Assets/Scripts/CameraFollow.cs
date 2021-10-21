@@ -15,27 +15,30 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     readonly float scalefactor = 1920f;
     [SerializeField]
-    protected float rbound, lbound, tbound, bbound;
+    public float rbound, lbound, tbound, bbound;
     [SerializeField]
     public GameObject gameFloor;
     [SerializeField]
     public float height;
     protected float ratio = 2f;
     protected float smoothSpeed = 3f;
+    public Vector2 fixedLocation = new Vector2(0, 0);
+    public bool toggleFollow = false;
+
     #endregion
 
     #region Privates
-    // :)
+// :)
     #endregion
 
-    private void Start()
+private void Start()
     {
         DontDestroyOnLoad(this);
     }
 
     public void setCameraTarget()
     {
-        // cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         gameFloor = GameObject.FindGameObjectWithTag("Floor"); // only have 1 gameobject with this tag please
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -45,7 +48,7 @@ public class CameraFollow : MonoBehaviour
         Resolution current = Screen.currentResolution;
         float aspect = (float)current.width / (float)current.height;
         float orthoSize = scalefactor / aspect / 200;
-        cam.orthographicSize = orthoSize;
+        if (cam) cam.orthographicSize = orthoSize;
         lbound = (aspect * current.width / current.height) - gameFloor.transform.localScale.x / 2f;
         rbound = gameFloor.transform.localScale.x / 2f -(aspect * current.width / current.height);
         tbound = orthoSize - gameFloor.transform.localScale.y / 2f;
@@ -70,10 +73,13 @@ public class CameraFollow : MonoBehaviour
             this.transform.position = new Vector3(camX, camY, this.transform.position.z);
             */
 
-            Vector3 pos = new Vector3(target.position.x, target.position.y, height);
-            pos.x = Mathf.Clamp(pos.x, lbound, rbound);
-            pos.y = Mathf.Clamp(pos.y, bbound, tbound);
-            cam.gameObject.transform.position = pos;
+            if (toggleFollow) 
+            {
+                Vector3 pos = new Vector3(target.position.x, target.position.y, height);
+                pos.x = Mathf.Clamp(pos.x, lbound, rbound);
+                pos.y = Mathf.Clamp(pos.y, bbound, tbound);
+                cam.gameObject.transform.position = pos;
+            } else cam.gameObject.transform.position = new Vector3(fixedLocation.x, fixedLocation.y, height);
             
             /*Vector3.Lerp(
                 this.transform.position,

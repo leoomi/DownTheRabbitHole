@@ -379,6 +379,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: projectileForgetTime
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
       propertyPath: projectileTimeToLive
       value: 5
       objectReference: {fileID: 0}

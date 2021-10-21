@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2239807945400093514}
   m_Layer: 0
   m_Name: PlayerSpawner
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,3 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 821055822501992794, guid: 049fa921afd4d6b468f3af4774f562c1, type: 3}
   menuPrefab: {fileID: 692040299406890012, guid: 0fdf7870fc1d89f4f8c1a08cd610d639, type: 3}
+  levelSettings:
+  - activateSettings: 0
+    followPlayer: 0
+    fixedLocation: {x: 0, y: 0, z: 0}
+    height: 0
+    rbound: 0
+    lbound: 0
+    tbound: 0
+    bbound: 0
+    scaleFactor: 0
