@@ -8,40 +8,73 @@ public class CameraFollow : MonoBehaviour
     // maybe make a public toggle for free-cam (or something similar, not bound to the bounding box?)
     #region Publics
     public Transform target;
+    public Camera cam;
     #endregion
 
     #region Serializables
     [SerializeField]
-    protected float xMin, xMax, yMin, yMax;
+    readonly float scalefactor = 1920f;
+    [SerializeField]
+    protected float rbound, lbound, tbound, bbound;
+    [SerializeField]
+    public GameObject gameFloor;
+    [SerializeField]
+    public float height;
     protected float ratio = 2f;
     protected float smoothSpeed = 3f;
     #endregion
 
     #region Privates
-    private Camera cam;
+    // :)
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        DontDestroyOnLoad(gameObject);
-        cam = GameObject.Find("Camera").GetComponent<Camera>();
-        // target = GameObject.Find("Player").transform;
+        DontDestroyOnLoad(this);
+    }
+
+    public void setCameraTarget()
+    {
+        // cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        gameFloor = GameObject.FindGameObjectWithTag("Floor"); // only have 1 gameobject with this tag please
         target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    public void scaleCameraOrthographicSize()
+    {
+        Resolution current = Screen.currentResolution;
+        float aspect = (float)current.width / (float)current.height;
+        float orthoSize = scalefactor / aspect / 200;
+        cam.orthographicSize = orthoSize;
+        lbound = (aspect * current.width / current.height) - gameFloor.transform.localScale.x / 2f;
+        rbound = gameFloor.transform.localScale.x / 2f -(aspect * current.width / current.height);
+        tbound = orthoSize - gameFloor.transform.localScale.y / 2f;
+        bbound = gameFloor.transform.localScale.y / 2f - orthoSize;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        // should change only when changing resolution? 
+        // it will do for now
+        scaleCameraOrthographicSize();
+
         if (target)
         {
             float time = Time.deltaTime;
             // maybe I should make these exposed? 
             //float camY = Mathf.Clamp(target.transform.position.y, yMin + cam.orthographicSize, yMax - cam.orthographicSize);
             //float camX = Mathf.Clamp(target.transform.position.x, xMin + ((xMax + cam.orthographicSize) / ratio), xMax - ((xMax + cam.orthographicSize) / ratio));
-            float camX = target.transform.position.x;
+            /*float camX = target.transform.position.x;
             float camY = target.transform.position.y;
             this.transform.position = new Vector3(camX, camY, this.transform.position.z);
+            */
+
+            Vector3 pos = new Vector3(target.position.x, target.position.y, height);
+            pos.x = Mathf.Clamp(pos.x, lbound, rbound);
+            pos.y = Mathf.Clamp(pos.y, bbound, tbound);
+            cam.gameObject.transform.position = pos;
+            
             /*Vector3.Lerp(
                 this.transform.position,
                 new Vector3(camX, camY, this.transform.position.z), smoothSpeed

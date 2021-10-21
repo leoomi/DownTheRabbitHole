@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Stairs : MonoBehaviour
 {
+
+    // TODO add scale factor
+
     [SerializeField]
     private bool goesUp = true;
     [SerializeField]
