@@ -153,10 +153,13 @@ public class Settings : MonoBehaviour
 
     public void qualitySettingsApply()
     {
+        // need to be able to set fullscreen mode
+        // need to be able to set the display used
+
         // everything thats not audio settings
         Application.targetFrameRate = userSettings.framerate;
         QualitySettings.vSyncCount = userSettings.vsync;
-        Screen.SetResolution(userSettings.res.width, userSettings.res.height, userSettings.fullscreen);
+        Screen.SetResolution(userSettings.res.width, userSettings.res.height, FullScreenMode.Windowed);//userSettings.fullscreen);
         QualitySettings.SetQualityLevel(userSettings.qualityLevel);
 
         // TODO dump to json?
@@ -226,10 +229,18 @@ public class Settings : MonoBehaviour
         loadQualitySettingsOptions();
         DontDestroyOnLoad(this);
         //DontDestroyOnLoad(this.gameObject);
-        DontDestroyOnLoad(canvas);
+        //DontDestroyOnLoad(canvas);
         // loadJSON();
-        //qualitySettingsApply();
-        //audioSettingsApply();
+        qualitySettingsApply();
+        audioSettingsApply();
+
+        // HAHA UNITY FUCK YOU THIS TOOK WAYYYYY TOO LONG TO FIX
+        // IMAGINE NOT BEING ABLE TO PROPERLY PLAY TEST YOUR OWN GAME
+        foreach (Display display in Display.displays) {
+            print(display.active);
+        }
+        print(Display.displays.Length);
+        Display.displays[0].Activate();
     }
 
     // Update is called once per frame
@@ -237,14 +248,14 @@ public class Settings : MonoBehaviour
     {
         // need to check button press for ESC
         // TODO freeze movement? 
-        /*if (Input.GetKeyDown(KeyCode.Escape)) // this works but Input.GetButtonDown("Menu") doesnt? Why, Unity?
+        if (Input.GetKeyDown(KeyCode.Escape)) // this works but Input.GetButtonDown("Menu") doesnt? Why, Unity?
         {
             optionsGO.SetActive(!optionsGO.gameObject.activeSelf);
             audioSettingsGO.SetActive(false);
             qualitySettingsGO.SetActive(false);
             canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
             //Time.timeScale = 1; // pauses game
-            StartCoroutine(Cooldown());
-        }*/
+            //StartCoroutine(Cooldown());
+        }
     }
 }
