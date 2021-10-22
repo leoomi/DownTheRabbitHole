@@ -73,6 +73,7 @@ public class PlayerSpawner : MonoBehaviour
                 camFollow.lbound = currentLevel.lbound;
                 camFollow.tbound = currentLevel.tbound;
                 camFollow.bbound = currentLevel.bbound;
+                
                 camFollow.toggleFollow = currentLevel.followPlayer;
             }
         }

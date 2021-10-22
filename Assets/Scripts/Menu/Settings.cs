@@ -174,8 +174,8 @@ public class Settings : MonoBehaviour
         float volumeSFX = volumeSFXSlider.value;
         float volumeMusic = volumeMusicSlider.value;
         print(SFXMixer);
-        SFXMixer.SetFloat("musicVol", Mathf.Log10(volumeSFX) * 20);
-        MusicMixer.SetFloat("musicVol", Mathf.Log10(volumeMusic) * 20);
+        SFXMixer.SetFloat("Master", Mathf.Log10(volumeSFX) * 20);
+        MusicMixer.SetFloat("Master", Mathf.Log10(volumeMusic) * 20);
         // AudioSettings.speakerMode = userSettings.audioMode;
 
         // TODO dump to json?

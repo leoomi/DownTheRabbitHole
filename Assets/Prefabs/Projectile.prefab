@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 5060596484890169166}
   - component: {fileID: 6760644877075301281}
   - component: {fileID: 1112733219831087650}
+  - component: {fileID: 6839602300894896319}
   m_Layer: 6
   m_Name: Projectile
   m_TagString: Untagged
@@ -159,6 +160,22 @@ MonoBehaviour:
   waitBeforeLockon: 1.5
   target: {fileID: 0}
   origin: {fileID: 0}
+--- !u!58 &6839602300894896319
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6178972662176859253}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6
 --- !u!1 &6178972662539157599
 GameObject:
   m_ObjectHideFlags: 0
