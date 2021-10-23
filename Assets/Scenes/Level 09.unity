@@ -571,11 +571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
       propertyPath: shotVelocity
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
       propertyPath: delayBetweenShots
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
       propertyPath: projectileForgetTime
@@ -1029,6 +1029,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6845659052303807115, guid: de1d9824ca21e7a43a81885878865586, type: 3}
   m_PrefabInstance: {fileID: 403799647}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &412756054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4962171577154210572, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_Name
+      value: Seeker (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: shotVelocity
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: delayBetweenShots
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: projectileForgetTime
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: projectileTimeToLive
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962171577154210575, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
 --- !u!1001 &462729283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1991,11 +2064,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
       propertyPath: shotVelocity
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
       propertyPath: delayBetweenShots
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4962171577154210573, guid: 0e0b721a09b945443a77e0de6056a19a, type: 3}
       propertyPath: projectileForgetTime
