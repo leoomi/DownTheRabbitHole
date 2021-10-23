@@ -86,7 +86,11 @@ private void Start()
                 pos.x = (toggleScaling is false ? pos.x : Mathf.Clamp(pos.x, lbound, rbound));
                 pos.y = (toggleScaling is false? pos.y : Mathf.Clamp(pos.y, bbound, tbound));
                 cam.gameObject.transform.position = pos;
-            } else cam.gameObject.transform.position = new Vector3(fixedLocation.x, fixedLocation.y, height);
+            }
+            else if (cam != null)
+            {
+                cam.gameObject.transform.position = new Vector3(fixedLocation.x, fixedLocation.y, height);
+            }
 
             /*Vector3.Lerp(
                 this.transform.position,

@@ -19,9 +19,9 @@ public class PlayerSpawner : MonoBehaviour
     private string[] sceneNames;
     [SerializeField]
     private LevelSettings[] levelSettings;
-    // manually put here afterwards? 
+    // manually put here afterwards?
     Dictionary<string, LevelSettings> combinedLevelSettings = new Dictionary<string, LevelSettings>(); // THANKS UNITY FOR NOT PUTTING THIS INTO THE INSPECTOR
-    
+
     [System.Serializable]
     public struct LevelSettings
     {
@@ -74,21 +74,19 @@ public class PlayerSpawner : MonoBehaviour
         camFollow.cam = cam;
 
         // because I need to make sure that the height is actually appropriate if no settings are found.
-        print(scene.name);
-        print(combinedLevelSettings[scene.name]);
-        camFollow.height = (combinedLevelSettings.ContainsKey(scene.name) ? (combinedLevelSettings[scene.name].activateSettings ? -combinedLevelSettings[scene.name].height : -5f) : -5f); 
+        camFollow.height = (combinedLevelSettings.ContainsKey(scene.name) ? (combinedLevelSettings[scene.name].activateSettings ? -combinedLevelSettings[scene.name].height : -5f) : -5f);
         // each level can have camera settings applied here
         if (combinedLevelSettings.ContainsKey(scene.name)) {
             LevelSettings currentLevel = combinedLevelSettings[scene.name];
             if (currentLevel.activateSettings)
             {
-                
+
                 camFollow.fixedLocation = currentLevel.fixedLocation;
                 camFollow.rbound = currentLevel.rbound;
                 camFollow.lbound = currentLevel.lbound;
                 camFollow.tbound = currentLevel.tbound;
                 camFollow.bbound = currentLevel.bbound;
-                
+
                 camFollow.toggleFollow = currentLevel.followPlayer;
             }
         }
