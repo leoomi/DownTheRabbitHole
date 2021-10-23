@@ -105,4 +105,12 @@ public class PlayerSpawner : MonoBehaviour
         changeCamTarget(player, scene, mode);
     }
 
+    void Update()
+    {
+        var currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name != "Ending" && Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene("Ending");
+        }
+    }
 }

@@ -13,8 +13,18 @@ public class EndingManager : MonoBehaviour
 
     private int currentIndex = 0;
 
+    public void Start()
+    {
+        // TODO Pause background music
+    }
+
     public void PlayClipAndSetNext()
     {
+        if (currentIndex >= audioClips.Count)
+        {
+            return;
+        }
+
         audioSource.clip = audioClips[currentIndex];
         audioSource.Play();
         currentIndex += 1;
@@ -27,7 +37,6 @@ public class EndingManager : MonoBehaviour
 
     public void RollCredits()
     {
-        Debug.Log("Credits rolled");
         animator.SetTrigger("Roll");
     }
 }
