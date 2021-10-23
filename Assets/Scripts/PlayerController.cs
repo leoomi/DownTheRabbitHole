@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     #region Serializables
     [SerializeField]
     private float moveForce = 5f;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
     [Range(0.01f, 1f)]
     private float slowSpeedPercent = 0.5f;
     // rigid-body stuff
@@ -66,6 +68,17 @@ public class PlayerController : MonoBehaviour
         var verticalMovement = Input.GetAxisRaw("Vertical");
 
         movementInput = new Vector2(horizontalMovement, verticalMovement);
+
+        animator.SetBool("Walking", movementInput != Vector2.zero);
+
+        if (movementInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (movementInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     // check over this to make sure what I did makes sense - Red
@@ -114,7 +127,7 @@ public class PlayerController : MonoBehaviour
     private void OnSceneLoaded(Scene _, LoadSceneMode __)
     {
         state = PlayerState.Normal;
-        animator.SetTrigger("Walk");
+        animator.SetTrigger("Idle");
         RestoreVelocityPosition();
     }
 

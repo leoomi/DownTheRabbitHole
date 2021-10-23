@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821055822421126244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 821055822501992798}
@@ -69,11 +69,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 345458535
+  m_SortingLayer: 1
   m_SortingOrder: 15
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 4220856481531319834, guid: 184a7083081aabc4e84cb7b9d51476dc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,25 +102,25 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.33027765, y: -0.36272445, z: 0}
-  - {x: -0.1959118, y: -0.4602146, z: 0}
-  - {x: -0.0049492493, y: -0.50172824, z: 0}
-  - {x: 0.17937112, y: -0.4602146, z: 0}
-  - {x: 0.3528433, y: -0.364385, z: 0}
-  - {x: 0.4616638, y: -0.18622494, z: 0}
-  - {x: 0.4948747, y: -0.00024402142, z: 0}
-  - {x: 0.45543075, y: 0.20741913, z: 0}
-  - {x: 0.34418702, y: 0.36727047, z: 0}
-  - {x: 0.18269214, y: 0.45806605, z: 0}
-  - {x: 0.0016928464, y: 0.49625856, z: 0}
-  - {x: -0.1776459, y: 0.46304768, z: 0}
-  - {x: -0.33359876, y: 0.36509213, z: 0}
-  - {x: -0.44997513, y: 0.20898445, z: 0}
-  - {x: -0.49480954, y: 0.0063981563, z: 0}
-  - {x: -0.4566173, y: -0.20781195, z: 0}
-  m_ShapePathHash: -1531167388
+  - {x: -0.4385324, y: -0.49589676, z: 0}
+  - {x: -0.22156087, y: -0.5353397, z: 0}
+  - {x: -0.0060398765, y: -0.5589927, z: 0}
+  - {x: 0.18497825, y: -0.53310716, z: 0}
+  - {x: 0.3271942, y: -0.5131855, z: 0}
+  - {x: 0.46280578, y: -0.39084005, z: 0}
+  - {x: 0.531738, y: -0.21378946, z: 0}
+  - {x: 0.4900615, y: -0.059708342, z: 0}
+  - {x: 0.40560883, y: 0.0242351, z: 0}
+  - {x: 0.24857908, y: 0.07707669, z: 0}
+  - {x: -0.012793299, y: 0.09517591, z: 0}
+  - {x: -0.20999274, y: 0.05973248, z: 0}
+  - {x: -0.31013098, y: 0.028754517, z: 0}
+  - {x: -0.3818556, y: -0.024654284, z: 0}
+  - {x: -0.49813274, y: -0.15803039, z: 0}
+  - {x: -0.5090574, y: -0.3119607, z: 0}
+  m_ShapePathHash: 1037151732
   m_Mesh: {fileID: 0}
-  m_InstanceId: 60398
+  m_InstanceId: 41414
 --- !u!1 &821055822501992794
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!50 &821055822501992792
 Rigidbody2D:
   serializedVersion: 4
@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 20
+  spriteRenderer: {fileID: 821055822421126245}
   linearDrag:
   - 16
   - 4
