@@ -21,7 +21,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     public float height;
     [SerializeField]
-    private bool toggleScaling = false;
+    public bool toggleScaling = false;
     protected float ratio = 2f;
     protected float smoothSpeed = 3f;
     public Vector2 fixedLocation = new Vector2(0, 0);
@@ -82,8 +82,9 @@ private void Start()
             if (toggleFollow)
             {
                 Vector3 pos = new Vector3(target.position.x, target.position.y, height);
-                pos.x = Mathf.Clamp(pos.x, lbound, rbound);
-                pos.y = Mathf.Clamp(pos.y, bbound, tbound);
+                // ensures that no errors appear if scaling isnt applied but target follow is
+                pos.x = (toggleScaling is false ? pos.x : Mathf.Clamp(pos.x, lbound, rbound));
+                pos.y = (toggleScaling is false? pos.y : Mathf.Clamp(pos.y, bbound, tbound));
                 cam.gameObject.transform.position = pos;
             } else cam.gameObject.transform.position = new Vector3(fixedLocation.x, fixedLocation.y, height);
 

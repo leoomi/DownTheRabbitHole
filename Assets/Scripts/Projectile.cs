@@ -124,6 +124,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Ice" || other.gameObject.tag == "Mud") return;
+        // not forgetting
         StartCoroutine(forgetTarget(waittime));
     }
 
