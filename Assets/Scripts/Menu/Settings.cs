@@ -67,7 +67,7 @@ public class Settings : MonoBehaviour
     public struct UserSettings
     {
 
-        [Range(30, 300)]
+        [Range(60, 300)]
         public int framerate;
         [Range(0, 2)]
         public int vsync;
@@ -159,7 +159,7 @@ public class Settings : MonoBehaviour
         // everything thats not audio settings
         Application.targetFrameRate = userSettings.framerate;
         QualitySettings.vSyncCount = userSettings.vsync;
-        Screen.SetResolution(userSettings.res.width, userSettings.res.height, FullScreenMode.Windowed);//userSettings.fullscreen);
+        //Screen.SetResolution(userSettings.res.width, userSettings.res.height, FullScreenMode.Windowed);//userSettings.fullscreen); // have a feeling its due to the way fullscreening works
         QualitySettings.SetQualityLevel(userSettings.qualityLevel);
 
         // TODO dump to json?
@@ -174,8 +174,8 @@ public class Settings : MonoBehaviour
         float volumeSFX = volumeSFXSlider.value;
         float volumeMusic = volumeMusicSlider.value;
         print(SFXMixer);
-        SFXMixer.SetFloat("Master", Mathf.Log10(volumeSFX) * 20);
-        MusicMixer.SetFloat("Master", Mathf.Log10(volumeMusic) * 20);
+        SFXMixer.SetFloat("MusicVol", Mathf.Log10(volumeSFX) * 20);
+        MusicMixer.SetFloat("MusicVol", Mathf.Log10(volumeMusic) * 20);
         // AudioSettings.speakerMode = userSettings.audioMode;
 
         // TODO dump to json?

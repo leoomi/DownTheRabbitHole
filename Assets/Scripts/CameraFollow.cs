@@ -33,7 +33,7 @@ public class CameraFollow : MonoBehaviour
 // :)
     #endregion
 
-private void Start()
+    private void Start()
     {
         DontDestroyOnLoad(this);
     }

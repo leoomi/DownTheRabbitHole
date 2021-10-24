@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerSpawner : MonoBehaviour
 {
 
+    // TODO audio here too
     // TODO add the canvas here
     //[SerializeField]
     //private GameObject levelFloor;
@@ -13,6 +14,8 @@ public class PlayerSpawner : MonoBehaviour
     private GameObject playerPrefab;
     [SerializeField]
     private GameObject menuPrefab;
+    [SerializeField]
+    private GameObject audioPrefab;
     [Header("Scene names line up to the level settings below")]
     [Header("Edit the prefab only!")]
     [SerializeField]
@@ -58,6 +61,7 @@ public class PlayerSpawner : MonoBehaviour
         {
             GameObject player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
             GameObject menu = Instantiate(menuPrefab, Vector3.zero, Quaternion.identity);
+            GameObject audioH = Instantiate(audioPrefab, Vector3.zero, Quaternion.identity);
             // TODO this isnt assigning
             //Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             changeCamTarget(player, SceneManager.GetActiveScene(), LoadSceneMode.Additive);

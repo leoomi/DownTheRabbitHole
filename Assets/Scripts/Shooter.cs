@@ -29,6 +29,8 @@ public class Shooter : MonoBehaviour
     private bool targetPlayer = false; // unused
     [SerializeField]
     private float projectileForgetTime = 0.1f;
+    [SerializeField]
+    private AudioClip shootSFX;
     #endregion
 
     #region Privates
@@ -64,6 +66,8 @@ public class Shooter : MonoBehaviour
             GameObject projectileInstance = Projectile.CreateProjectile(projectilePrefab, -shotOrigin[i].transform.up, shotOrigin[i], Quaternion.identity, shotVelocity, projectileForgetTime);
             var projectile = projectileInstance.GetComponent<Projectile>();
             //projectileInstance.AddComponent(projectileScript);
+
+            if (shootSFX) AudioHandler.instance.PlaySFX(GetComponent<AudioSource>()); //.PlaySFX(shootSFX, this.gameObject.transform.position);
 
             projectile.timeToLive = projectileTimeToLive;
             projectile.maxBounces = projectileMaxBounces;
