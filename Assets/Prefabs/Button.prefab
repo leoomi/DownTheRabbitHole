@@ -134,7 +134,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1542445631943003581}
         m_TargetAssemblyTypeName: GameButton, Assembly-CSharp
-        m_MethodName: playButtonDownSFX
+        m_MethodName: toggleSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1542445631943003581}
         m_TargetAssemblyTypeName: GameButton, Assembly-CSharp
-        m_MethodName: playButtonUpSFX
+        m_MethodName: toggleSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -163,8 +163,8 @@ MonoBehaviour:
   tags:
   - Player
   - Box
-  buttonPressSFXU: {fileID: 0}
-  buttonPressSFXD: {fileID: 0}
+  buttonPressSFXU: {fileID: 8300000, guid: 29e0b762a2f387741a014a37869e0a57, type: 3}
+  buttonPressSFXD: {fileID: 8300000, guid: 29e0b762a2f387741a014a37869e0a57, type: 3}
 --- !u!58 &1542445631943003580
 CircleCollider2D:
   m_ObjectHideFlags: 0
