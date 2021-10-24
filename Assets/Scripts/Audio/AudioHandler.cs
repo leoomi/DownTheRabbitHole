@@ -9,8 +9,6 @@ public class AudioHandler : MonoBehaviour
     public static AudioHandler instance = null;
 
     [SerializeField]
-    private AudioSource sourceMusic;
-    [SerializeField]
     private AudioMixer musicMixer;
 
     private void Awake()
