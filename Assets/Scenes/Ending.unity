@@ -1030,7 +1030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 335722387}
   m_Layer: 5
-  m_Name: Team (1)
+  m_Name: 3rd parties
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 408099625}
   - component: {fileID: 408099624}
   m_Layer: 5
-  m_Name: Backxstarz
+  m_Name: Beckxstarz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1127,11 +1127,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Beckxstarz
-
-    Art
-
-'
+  m_Text: "Beckxstarz\nArt\n@Beckxstarz \n"
 --- !u!222 &408099625
 CanvasRenderer:
   m_ObjectHideFlags: 0
