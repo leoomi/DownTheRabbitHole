@@ -1282,7 +1282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528441, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.85
+      value: -2.69
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528441, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1351,6 +1351,10 @@ PrefabInstance:
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: projectileTimeToLive
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
+      propertyPath: projectileLightRadius
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 970882525711528443, guid: 78a77dcae55cc70468600b04d5e418f6, type: 3}
       propertyPath: shootImmediatelyAfterDelay
