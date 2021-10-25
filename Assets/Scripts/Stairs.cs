@@ -100,7 +100,7 @@ public class Stairs : MonoBehaviour
         player.GoDown(LoadScene, myCollider);
     }
 
-    private void LoadScene()
+    public void LoadScene()
     {
         var currentIndex = SceneManager.GetActiveScene().buildIndex;
         var destinationIndex = currentIndex + (goesUp ? 1 : - 1);

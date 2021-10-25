@@ -80,7 +80,7 @@ public class Settings : MonoBehaviour
         public int qualityLevel;
         public bool fullscreen;
         public AudioSpeakerMode audioMode;
-        
+
         public UserSettings(int fr, int vs, Resolution r, float vm, float vsy, int ql, bool fs, AudioSpeakerMode asm)
         {
             framerate = fr;
@@ -247,15 +247,20 @@ public class Settings : MonoBehaviour
     void Update()
     {
         // need to check button press for ESC
-        // TODO freeze movement? 
+        // TODO freeze movement?
         if (Input.GetKeyDown(KeyCode.Escape)) // this works but Input.GetButtonDown("Menu") doesnt? Why, Unity?
         {
-            optionsGO.SetActive(!optionsGO.gameObject.activeSelf);
-            audioSettingsGO.SetActive(false);
-            qualitySettingsGO.SetActive(false);
-            canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
+            TurnOnSettings();
             //Time.timeScale = 1; // pauses game
             //StartCoroutine(Cooldown());
         }
+    }
+
+    public void TurnOnSettings()
+    {
+        optionsGO.SetActive(!optionsGO.gameObject.activeSelf);
+        audioSettingsGO.SetActive(false);
+        qualitySettingsGO.SetActive(false);
+        canvas.gameObject.SetActive(!canvas.gameObject.activeSelf);
     }
 }
