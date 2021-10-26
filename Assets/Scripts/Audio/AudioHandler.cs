@@ -10,7 +10,7 @@ public class AudioHandler : MonoBehaviour
 
     [SerializeField]
     private AudioMixer musicMixer;
-    //[SerializeField]
+    [SerializeField]
     private AudioSource musicSource;
 
     private void Awake()
@@ -53,11 +53,16 @@ public class AudioHandler : MonoBehaviour
         source.Play();
     }
 
-    /*public void PlayMusic(AudioClip clip, bool fadein=false)
+    public void StopMusic()
     {
-        //musicMixer.
+        instance.musicMixer.SetFloat("MusicVol", 0.0001f);
+        instance.musicSource.mute = true;
+    }
+
+    public void PlayMusic(AudioClip clip, bool fadein=false)
+    {
         musicSource.clip = clip;
         StartCoroutine(Fade(musicMixer, "SFXVolume", targetVolume:(fadein ? 1 : 0)));
-    }*/
+    }
 
 }

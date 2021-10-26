@@ -952,7 +952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonReleasedEvent.m_PersistentCalls.m_Calls.Array.size
@@ -963,11 +963,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1310165767}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 62217713933344569, guid: 1a7f0d787128a3a4ebcacfcde28ec3da, type: 3}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
@@ -975,11 +987,23 @@ PrefabInstance:
       value: PlayClipAndSetNext
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StopMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: EndingManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003583, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
@@ -1514,7 +1538,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1927892980}
   - component: {fileID: 1927892979}
-  - component: {fileID: 1927892978}
   - component: {fileID: 1927892981}
   m_Layer: 0
   m_Name: Main Camera
@@ -1523,14 +1546,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1927892978
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927892977}
-  m_Enabled: 1
 --- !u!20 &1927892979
 Camera:
   m_ObjectHideFlags: 0
