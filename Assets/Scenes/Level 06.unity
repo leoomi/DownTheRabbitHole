@@ -353,6 +353,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: buttonPressSFXD
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: buttonPressSFXU
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -877,6 +885,14 @@ PrefabInstance:
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: permanentPress
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: buttonPressSFXD
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: buttonPressSFXU
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.size
@@ -1455,6 +1471,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: buttonPressSFXD
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: buttonPressSFXU
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -1858,6 +1882,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: buttonPressSFXD
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: buttonPressSFXU
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1909,6 +1941,10 @@ PrefabInstance:
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 478730480}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -2356,6 +2392,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 413088170583396088, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003458, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2452,6 +2492,10 @@ PrefabInstance:
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
       objectReference: {fileID: 478730480}
+    - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
+      propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1542445631943003581, guid: 356e5d402dd6a9c40b8803ea7ab70e25, type: 3}
       propertyPath: onButtonPressEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2

@@ -231,7 +231,7 @@ public class Settings : MonoBehaviour
         //DontDestroyOnLoad(this.gameObject);
         //DontDestroyOnLoad(canvas);
         // loadJSON();
-        qualitySettingsApply();
+        //qualitySettingsApply();
         audioSettingsApply();
 
         // HAHA UNITY FUCK YOU THIS TOOK WAYYYYY TOO LONG TO FIX

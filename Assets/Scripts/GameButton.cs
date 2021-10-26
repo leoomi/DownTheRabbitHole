@@ -17,6 +17,10 @@ public class GameButton : MonoBehaviour
     [SerializeField]
     private List<string> tags = new List<string> { "Player", "Box" };
     [SerializeField]
+    private Sprite unpressedSprite;
+    [SerializeField]
+    private Sprite pressedSprite;
+    [SerializeField]
     private AudioClip buttonPressSFXU;
     [SerializeField]
     private AudioClip buttonPressSFXD;
@@ -42,8 +46,8 @@ public class GameButton : MonoBehaviour
             onButtonPressEvent?.Invoke();
         }
 
-        // TODO: Temporary visuals, replace with actual sprites
-        sprite.color = Color.cyan;
+        toggleSFX();
+        sprite.sprite = pressedSprite;
         pressed = true;
     }
 
@@ -68,10 +72,11 @@ public class GameButton : MonoBehaviour
 
         if (onButtonPressEvent.GetPersistentEventCount() > 0)
         {
-             onButtonReleasedEvent?.Invoke();
+            onButtonReleasedEvent?.Invoke();
         }
-        // TODO: Temporary visuals, replace with actual sprites
-        sprite.color = Color.red;
+
+        toggleSFX();
+        sprite.sprite = unpressedSprite;
         pressed = false;
     }
 
