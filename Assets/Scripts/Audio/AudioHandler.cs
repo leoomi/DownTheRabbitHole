@@ -10,12 +10,16 @@ public class AudioHandler : MonoBehaviour
 
     [SerializeField]
     private AudioMixer musicMixer;
+    //[SerializeField]
+    private AudioSource musicSource;
 
     private void Awake()
     {
         if (!instance) instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(this);
+        musicSource = GetComponent<AudioSource>();
+        DontDestroyOnLoad(musicSource);
     }
 
     private static IEnumerator Fade(AudioMixer mixer, string param, float duration=1f, float targetVolume = 0.0f)
@@ -49,10 +53,11 @@ public class AudioHandler : MonoBehaviour
         source.Play();
     }
 
-    public void PlayMusic(AudioClip clip, bool fadein=false)
+    /*public void PlayMusic(AudioClip clip, bool fadein=false)
     {
         //musicMixer.
+        musicSource.clip = clip;
         StartCoroutine(Fade(musicMixer, "SFXVolume", targetVolume:(fadein ? 1 : 0)));
-    }
+    }*/
 
 }
