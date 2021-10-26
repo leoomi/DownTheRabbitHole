@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
     private AudioSource boxNoise;
     [SerializeField]
     private AudioSource moveSound;
+    [SerializeField]
+    private AudioSource levelAudioSource;
+    [SerializeField]
+    private AudioClip goUpSFX;
+    [SerializeField]
+    private AudioClip goDownSFX;
     #endregion
 
     #region Publics
@@ -147,6 +153,8 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Rise");
         StoreVelocityPosition();
 
+        levelAudioSource.clip = goUpSFX;
+        levelAudioSource.Play();
         Vector3 velocityDirection = storedVelocityForTransition.normalized;
         StartCoroutine(MoveCoroutine(transform.position, stairsPosition, 0.2f));
         StartCoroutine(LoadSceneCoroutine(1f, loadSceneAction));
@@ -164,6 +172,8 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Fall");
         StoreVelocityPosition();
 
+        levelAudioSource.clip = goDownSFX;
+        levelAudioSource.Play();
         Vector3 closestPoint = stairsCollider.ClosestPoint(transform.position);
         var direction = (closestPoint- transform.position).normalized;
         StartCoroutine(MoveCoroutine(transform.position, transform.position + 1.5f * direction, 1f, loadSceneAction));
