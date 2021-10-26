@@ -69,8 +69,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
-        boxNoise = GetComponents<AudioSource>()[0];
-        moveSound = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame

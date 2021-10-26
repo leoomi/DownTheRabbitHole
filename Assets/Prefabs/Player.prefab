@@ -120,7 +120,7 @@ MonoBehaviour:
   - {x: -0.5090574, y: -0.3119607, z: 0}
   m_ShapePathHash: 1037151732
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47822
+  m_InstanceId: 58480
 --- !u!1 &821055822501992794
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   - 0.15
   - 0
   boxNoise: {fileID: 370182358335722024}
-  moveSound: {fileID: 8300000, guid: 8f1c743621fb38b4383ad587b2c723dd, type: 3}
+  moveSound: {fileID: 4348625348154091952}
   levelAudioSource: {fileID: 4434411961703320107}
   goUpSFX: {fileID: 8300000, guid: e2122ff29a00f6d4e9ee836c948a3e10, type: 3}
   goDownSFX: {fileID: 8300000, guid: 48f3efada846e90409b3d79e400ebab6, type: 3}
@@ -266,7 +266,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7603587867641026426, guid: f5e2b18fb2220234785fe757382e96df, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 71495b425a010b442a19ca14f44f9d48, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
