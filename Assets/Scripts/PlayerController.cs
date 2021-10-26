@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     private float[] linearDrag = new float[3] { 16f, 4f, 0.05f };
     [SerializeField]
     private float[] angularDrag = new float[3] { 0.05f, 0.15f, 0.01f };
+    [SerializeField]
+    private AudioSource boxNoise;
+    [SerializeField]
+    private AudioSource moveSound;
     #endregion
 
     #region Publics
@@ -59,6 +63,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+        boxNoise = GetComponents<AudioSource>()[0];
+        moveSound = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
@@ -108,6 +114,10 @@ public class PlayerController : MonoBehaviour
             // checks if user input is allowed
             forceToBeAdded.y = (impedeMovement is false ? movementInput.y : 1) * moveForce * (impedeMovement ? lastInput.y : 1) / (slowMovement ? slowSpeedPercent : 1);
         }
+
+        if (moveSound.clip != null)
+            if (!moveSound.isPlaying && (direction[0] != 0 || direction[1] != 0))
+                AudioHandler.instance.PlaySFX(moveSound);
 
         direction[0] = (movementInput.x > 0 ? 1 : movementInput.x < 0 ? -1 : 0);
         direction[1] = (movementInput.y > 0 ? 1 : movementInput.y < 0 ? -1 : 0);
@@ -189,6 +199,14 @@ public class PlayerController : MonoBehaviour
         storedVelocityForTransition = Vector2.zero;
         myRigidbody.isKinematic = false;
         myCollider.enabled = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Box")
+            if (boxNoise.clip != null)
+                if (!boxNoise.isPlaying)
+                    AudioHandler.instance.PlaySFX(boxNoise);
     }
 }
 
